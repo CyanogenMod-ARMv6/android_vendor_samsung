@@ -49,7 +49,7 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/cooperve/proprietary/usr/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc \
     vendor/samsung/cooperve/proprietary/etc/bluetooth/audio.conf:system/etc/bluetooth/audio.conf \
     vendor/samsung/cooperve/proprietary/lib/hw/gps.bcm21553.so:system/lib/hw/gps.bcm21553.so \
-    vendor/samsung/cooperve/proprietary bh/bin/glgps:system/bin/glgps \
+    vendor/samsung/cooperve/proprietary/bin/glgps:system/bin/glgps \
     device/samsung/bcm21553-common/prebuilt/bin/get_macaddrs:/system/bin/get_macaddrs \
     vendor/samsung/cooperve/proprietary/etc/wifi/bcm4330_aps.bin:system/etc/wifi/bcm4330_aps.bin \
     vendor/samsung/cooperve/proprietary/etc/wifi/bcm4330_sta.bin:system/etc/wifi/bcm4330_sta.bin \
