@@ -72,12 +72,12 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_COPY_FILES += \
     vendor/samsung/cooperve/proprietary/etc/bluetooth/audio.conf:system/etc/bluetooth/audio.conf \
-    vendor/samsung/totoro/proprietary/system/bin/btld:system/bin/btld \
+    vendor/samsung/cooperve/proprietary/system/bin/btld:system/bin/btld \
     vendor/samsung/cooperve/proprietary/bin/BCM4330B1_002.001.003.0634.0652.hcd:system/bin/BCM4330B1_002.001.003.0634.0652.hcd
 
 # GPS
 PRODUCT_COPY_FILES += \
-    vendor/samsung/totoro/proprietary/system/lib/libsoc.so:system/lib/libsoc.so \
+    vendor/samsung/cooperve/proprietary/system/lib/libsoc.so:system/lib/libsoc.so \
 #    vendor/samsung/cooperve/proprietary/lib/hw/gps.bcm21553.so:system/lib/hw/gps.bcm21553.so \
 #    vendor/samsung/cooperve/proprietary/bin/glgps:system/bin/glgps
 
