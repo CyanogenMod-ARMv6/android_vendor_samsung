@@ -1,0 +1,62 @@
+#!/system/xbin/busybox ash
+export bbcmd="/system/bin/busybox.a2sd"
+export a2sdlog="/data/dtinstall.log";
+
+$bbcmd echo "[ ] Darktremor Apps2SD Installation Program" > $a2sdlog
+$bbcmd echo "[ ] Install Date: `/system/bin/busybox.a2sd date`" >> $a2sdlog
+$bbcmd echo "" >> $a2sdlog
+$bbcmd echo "[ ] Performing cleanup for temp, beta and swap files" >> $a2sdlog
+$bbcmd rm -f /system/bin/*.new | $bbcmd tee -a $a2sdlog
+$bbcmd rm -f /system/bin/*.tmp | $bbcmd tee -a $a2sdlog
+$bbcmd rm -f /system/bin/*.sw* | $bbcmd tee -a $a2sdlog
+$bbcmd echo "[ ] Resetting Apps2SD Launcher" | $bbcmd tee -a $a2sdlog
+$bbcmd rm -f /system/etc/init.d/*a2sd* | $bbcmd tee -a $a2sdlog
+$bbcmd rm -f /system/etc/init.d/*apps2sd* | $bbcmd tee -a $a2sdlog
+$bbcmd rm -f /system/etc/init.d/*cache* | $bbcmd tee -a $a2sdlog
+$bbcmd rm -f /system/etc/init.d/*dalvik* | $bbcmd tee -a $a2sdlog
+$bbcmd rm -f /system/etc/init.d/*mount* | $bbcmd tee -a $a2sdlog
+$bbcmd rm -f /system/etc/init.d/*data2* | $bbcmd tee -a $a2sdlog
+$bbcmd echo "[ ] Restoring Launcher" | $bbcmd tee -a $a2sdlog
+launchcpy=0
+for (( x=1; x<40; x++ )); do
+  if [ $x -lt 10 ]; 
+    then
+      a2sdcmd="/system/etc/init.d/0${x}apps2sd"
+      $bbcmd echo "[ ] Checking for existence of 0${x}apps2sd..." >> $a2sdlog
+      launcher=`$bbcmd ls /system/etc/init.d/0${x}* | $bbcmd grep -e 0$x -q;echo $?`
+      if [ $launcher == 1 ];
+        then
+          $bbcmd echo "[ ] Slot found: 0${x}apps2sd" >> $a2sdlog
+          $bbcmd echo "[ ] Target: $a2sdcmd" >> $a2sdlog
+          $bbcmd mv -f /system/etc/init.d/dtapp $a2sdcmd | $bbcmd tee -a $a2sdlog
+          launchcpy=1
+          x=99
+        else
+          $bbcmd echo "[ ] Slot occupied: 0${x}apps2sd" >> $a2sdlog
+      fi;
+    else
+      a2sdcmd="/system/etc/init.d/${x}apps2sd"
+      xpm=$x
+      $bbcmd echo "[ ] Checking for existence of ${x}apps2sd..." >> $a2sdlog
+      launcher=`ls /system/etc/init.d/${x}* | /system/bin/busybox.a2sd grep -e $x -q;echo $?`
+      if [ $launcher == 1 ];
+        then
+          $bbcmd echo "[ ] Slot found: ${x}apps2sd" >> $a2sdlog
+          $bbcmd echo "[ ] Target: $a2sdcmd" >> $a2sdlog
+          $bbcmd mv -f /system/etc/init.d/dtapp $a2sdcmd | $bbcmd tee -a $a2sdlog
+          launchcpy=1
+          x=99
+        else
+          $bbcmd echo "[ ] Slot occupied: ${x}apps2sd" >> $a2sdlog
+      fi;
+  fi;
+done;
+if [ -e /data/.noa2sd ];
+  then
+    echo "[ ] Removing No Apps2SD flag." >> $a2sdlog
+    /system/bin/busybox.a2sd rm /data/.noa2sd
+fi;
+if [ -e /system/bin/adbfix ];
+  then
+    /system/bin/busybox.a2sd chmod 777 /system/bin/adbfix
+fi;

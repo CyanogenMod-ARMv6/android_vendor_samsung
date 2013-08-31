@@ -1,0 +1,6 @@
+#!/system/bin/sh
+# activates modules needed by droidwall
+cd /system/lib/modules
+insmod xt_owner.ko
+insmod ipt_REJECT.ko
+insmod ipt_LOG.ko

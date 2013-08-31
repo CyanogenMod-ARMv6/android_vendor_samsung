@@ -1,0 +1,135 @@
+#!/system/bin/sh
+# kuro tweak2: the setprop stuffs and journalismoff
+# copyright@mycat (2012) - lol...i'm just joking. no copyright or whatsoever
+# contact : kaze.noichi17@gmail.com
+
+# v.1 - first release
+# v.1.1 - new log system and new tweak added.
+
+LOG_FILE=/data/kuro_tweak2.log
+    if [ -e $LOG_FILE ]; then
+        rm $LOG_FILE;
+    fi;
+
+# the preface
+echo "==========================
+#  TWEAK KURO2-LOG FILE  #
+==========================
+in the name of Allah, 
+the most beneficent, 
+the most mercifull
+==========================
+system information:
+vendor   : $( getprop ro.product.brand )
+model    : $( getprop ro.product.model ) 
+ROM      : $( getprop ro.build.display.id )
+
+running the script...
+start at: 
+$( date +"%m-%d-%Y %H:%M:%S" )
+==========================" | tee -a $LOG_FILE;
+
+# 3g mod
+setprop ro.ril.enable.dtm 1
+setprop ro.ril.gprsclass 10
+setprop ro.ril.hep 1
+setprop ro.ril.enable.3g.prefix 1
+setprop ro.ril.hsdpa.category 8
+setprop ro.ril.hsupa.category 6
+setprop ro.ril.hsxpa 2
+setprop ro.ril.enable.a53 1
+setprop ro.ril.htcmaskw1.bitmask 4294967295
+setprop ro.ril.htcmaskw1 14449
+echo "3g signal mod---------[OK]" | tee -a $LOG_FILE;
+
+# battery mod n media
+setprop debug.performance.tuning 1
+setprop pm.sleep_mode 1
+setprop windowsmgr.max_events_per_sec 150
+setprop ro.ril.disable.power.collapse 1
+setprop wifi.supplicant_scan_interval 180
+setprop video.accelerate.hw 1
+setprop ro.media.enc.jpeg.quality 100
+setprop debug.sf.hw 1
+echo "battery n media-------[OK]" | tee -a $LOG_FILE;
+
+# performance
+setprop persist.sys.purgeable_assets 1
+setprop dalvik.vm.execution-mode int:jit
+setprop dalvik.vm.dexopt-flags m=y
+setprop dalvik.vm.heapsize 64m
+setprop ro.kernel.android.checkjni 0
+setprop ro.telephony.call_ring.delay=0
+setprop ro.FOREGROUND_APP_ADJ 0
+setprop ro.VISIBLE_APP_ADJ 4
+setprop ro.PERCEPTIBLE_APP_ADJ 2
+setprop ro.HEAVY_WEIGHT_APP_ADJ 5
+setprop ro.SECONDARY_SERVER_ADJ 6
+setprop ro.BACKUP_APP_ADJ 7
+setprop ro.HOME_APP_ADJ 1
+setprop ro.HIDDEN_APP_MIN_ADJ 8
+setprop ro.EMPTY_APP_ADJ 15
+setprop ro.FOREGROUND_APP_MEM 1536
+setprop ro.VISIBLE_APP_MEM 3072
+setprop ro.PERCEPTIBLE_APP_MEM 1024
+setprop ro.HEAVY_WEIGHT_APP_MEM 10240
+setprop ro.SECONDARY_SERVER_MEM 10240
+setprop ro.BACKUP_APP_MEM 12800
+setprop ro.HOME_APP_MEM 1024
+setprop ro.HIDDEN_APP_MEM 12800
+setprop ro.EMPTY_APP_MEM 19200
+echo "performance-----------[OK]" | tee -a $LOG_FILE;
+
+# Disable debugging notify icon on statusbar
+setprop persist.adb.notify 0
+
+# Disable blackscreen issue after a call
+setprop ro.lge.proximity.delay 25
+setprop mot.proximity.delay 25
+
+# Phone will not wake up from hitting the volume rocker
+setprop ro.config.hwfeature_wakeupkey 0
+
+# Enable display Dithering
+setprop persist.sys.use_dithering 1
+
+# For SD storage insert notificationsound
+setprop persist.service.mount.playsnd 0
+echo "additional stuff------[OK]" | tee -a $LOG_FILE;
+
+# journalismoff
+tune2fs -o journal_data_writeback /dev/block/mmcblk0p1
+tune2fs -O ^has_journal /dev/block/mmcblk0p1
+tune2fs -o journal_data_writeback /dev/block/mmcblk0p8
+tune2fs -O ^has_journal /dev/block/mmcblk0p8
+tune2fs -o journal_data_writeback /block/path/to/system
+tune2fs -O ^has_journal /block/path/to/system
+tune2fs -o journal_data_writeback /block/path/to/cache
+tune2fs -O ^has_journal /block/path/to/cache
+tune2fs -o journal_data_writeback /block/path/to/data
+tune2fs -O ^has_journal /block/path/to/data
+echo "journalismoff---------[OK]
+==========================
+bacem-tweak for UV status
+==========================" | tee -a $LOG_FILE;
+
+if [ -e /proc/sys/bacem/volt/cpu ]; then
+	echo "-bacem tweak is applied
+ cpu undervolted to $( cat /proc/sys/bacem/volt/cpu )" | tee -a $LOG_FILE; else
+	echo "-neither you don't have 
+ bacem tweak or you're using this 
+ tweak not on sgy
+ 
+ cpu runs at normal voltage" | tee -a $LOG_FILE
+fi;
+
+# end
+echo "==========================
+done at: 
+$( date +"%m-%d-%Y %H:%M:%S" )
+all praise is due to Allah
+==========================
+--   have a nice day    -- 
+      kurotsugi@xda
+==========================" | tee -a $LOG_FILE;
+

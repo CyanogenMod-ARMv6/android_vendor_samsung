@@ -1,0 +1,9 @@
+#!/system/bin/sh
+#Creeds Rom Property DO NOT COPY
+/system/bin/bootanimation &
+sleep 15
+kill $
+bootanimation=`ps | grep bootanimation | cut -d " " -f3`
+if ! [ $bootanimation = "" ]; then
+  kill $bootanimation
+fi

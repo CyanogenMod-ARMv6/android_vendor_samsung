@@ -1,0 +1,20 @@
+#!/system/bin/sh
+
+#########################################
+### select favorite values zRAM Size. ###
+#########################################
+export size="72"        #This value is in MB
+
+
+#################################
+### WONT CHANGE VALUES BELLOW ###
+#################################
+
+insmod /system/lib/modules/lzo_compress.ko
+insmod /system/lib/modules/lzo_decompress.ko
+insmod /system/lib/modules/zram.ko
+
+echo $(($size*1024*1024)) > /sys/block/zram0/disksize
+
+mkswap /dev/block/zram0
+swapon /dev/block/zram0

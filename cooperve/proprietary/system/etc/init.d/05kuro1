@@ -1,0 +1,282 @@
+#!/system/bin/sh
+# kuro tweak1: the echo stuff
+# copyright@mycat (2012) - lol...i'm just joking. no copyright or whatsoever
+# contact : kaze.noichi17@gmail.com
+
+# v.1 - first release
+# v.1.1 - new log system and new tweak added.
+
+LOG_FILE=/data/kuro_tweak1.log
+LOG_FILEZ=/data/kuro_sqlite.log
+    if [ -e $LOG_FILE ]; then
+        rm $LOG_FILE;
+    fi;
+
+    if [ -e $LOG_FILEZ ]; then
+        rm $LOG_FILEZ;
+    fi;
+
+# the preface
+echo "==========================
+#  TWEAK KURO1-LOG FILE  #
+==========================
+in the name of Allah, 
+the most beneficent, 
+the most mercifull
+==========================
+system information:
+vendor   : $( getprop ro.product.brand )
+model    : $( getprop ro.product.model ) 
+ROM      : $( getprop ro.build.display.id )
+
+running the script...
+start at: 
+$( date +"%m-%d-%Y %H:%M:%S" )
+==========================" | tee -a $LOG_FILE;
+
+# perfect mount
+mount -o remount,noatime,commit=500,noauto_da_alloc,barrier=0 /system /system;
+mount -o remount,noatime,commit=500,noauto_da_alloc,barrier=0 /data /system;
+mount -o remount,noatime,commit=500,noauto_da_alloc,barrier=0 /cache /system;
+echo "perfect mount---------[OK]" | tee -a $LOG_FILE;
+
+# sdcard speed fix
+busybox echo "2048" > /sys/devices/virtual/bdi/179:0/read_ahead_kb;
+echo "sdcard speed fix------[OK]
+-value set to $( cat /sys/devices/virtual/bdi/179:0/read_ahead_kb )" | tee -a $LOG_FILE;
+
+# kernel kick
+echo "4096" > /proc/sys/kernel/shmmni;
+echo "4096" > /proc/sys/kernel/msgmni;
+echo "64000" > /proc/sys/kernel/msgmax;
+echo "20000000" > /proc/sys/kernel/sched_latency_ns;
+echo "2500000" > /proc/sys/kernel/sched_wakeup_granularity_ns;
+echo "1000000" > /proc/sys/kernel/sched_min_granularity_ns;
+echo "500 512000 64 2048" > /proc/sys/kernel/sem;
+echo "268435456" > /proc/sys/kernel/shmmax;
+echo "2097152" > /proc/sys/kernel/shmall;
+echo "30" > /proc/sys/kernel/panic;
+echo "0" > /proc/sys/kernel/panic_on_oops;
+echo "5000" > /proc/sys/kernel/threads-max;
+echo "10" > /proc/sys/fs/lease-break-time;
+echo "65536" > /proc/sys/fs/file-max;
+echo "60" > /proc/sys/kernel/panic;
+echo "0" > /proc/sys/kernel/panic_on_oops;
+echo "1" > /proc/sys/kernel/sched_compat_yield;
+echo "256000" > /proc/sys/kernel/sched_shares_ratelimit;
+echo "0" > /proc/sys/kernel/ctrl-alt-del;
+echo "kernel kick-----------[OK]" | tee -a $LOG_FILE;
+
+# OOM
+echo "0" > /proc/sys/vm/laptop_mode;
+echo "40" > /proc/sys/vm/swappiness;
+echo "3000" > /proc/sys/vm/dirty_writeback_centisecs;
+echo "500" > /proc/sys/vm/dirty_expire_centisecs;
+echo "15" > /proc/sys/vm/dirty_ratio;
+echo "100 100" > /proc/sys/vm/lowmem_reserve_ratio;
+echo "1" > /proc/sys/vm/highmem_is_dirtyable;
+echo "4" > /proc/sys/vm/min_free_order_shift;
+echo "0" > /proc/sys/vm/oom_kill_allocating_task;
+echo "0" > /proc/sys/vm/panic_on_oom;
+echo "70" > /proc/sys/vm/overcommit_ratio;
+echo "3" > /proc/sys/vm/page-cluster;
+echo "3" > /proc/sys/vm/drop_caches;
+echo "15360" > /proc/sys/vm/min_free_kbytes;
+echo "50" > /proc/sys/vm/vfs_cache_pressure;
+echo "70" > /proc/sys/vm/dirty_background_ratio;
+echo "0" > /proc/sys/vm/block_dump;
+echo "memory management-----[OK]" | tee -a $LOG_FILE;
+
+# network boost
+echo "cubic" > /proc/sys/net/ipv4/tcp_congestion_control;
+echo "0" > /proc/sys/net/ipv4/tcp_timestamps;
+echo "1" > /proc/sys/net/ipv4/tcp_tw_reuse;
+echo "1" > /proc/sys/net/ipv4/tcp_sack;
+echo "1" > /proc/sys/net/ipv4/tcp_dsack;
+echo "1" > /proc/sys/net/ipv4/tcp_tw_recycle;
+echo "1" > /proc/sys/net/ipv4/tcp_window_scaling;
+echo "5" > /proc/sys/net/ipv4/tcp_keepalive_probes;
+echo "30" > /proc/sys/net/ipv4/tcp_keepalive_intvl;
+echo "30" > /proc/sys/net/ipv4/tcp_fin_timeout;
+echo "1" > /proc/sys/net/ipv4/tcp_moderate_rcvbuf;
+echo "1440000" > /proc/sys/net/ipv4/tcp_max_tw_buckets;
+echo "57344 57344 524288" > /proc/sys/net/ipv4/tcp_mem;
+echo "2" > /proc/sys/net/ipv4/tcp_synack_retries;
+echo "2" > /proc/sys/net/ipv4/tcp_syn_retries;
+echo "1024" > /proc/sys/net/ipv4/tcp_max_syn_backlog;
+echo "1" > /proc/sys/net/ipv4/icmp_echo_ignore_all;
+echo "1" > /proc/sys/net/ipv4/route/flush;
+echo "6144" > /proc/sys/net/ipv4/udp_rmem_min;
+echo "6144" > /proc/sys/net/ipv4/udp_wmem_min;
+echo "1" > /proc/sys/net/ipv4/tcp_rfc1337;
+echo "0" > /proc/sys/net/ipv4/ip_no_pmtu_disc;
+echo "0" > /proc/sys/net/ipv4/tcp_ecn;
+echo "6144 87380 524288" > /proc/sys/net/ipv4/tcp_wmem;
+echo "6144 87380 524288" > /proc/sys/net/ipv4/tcp_rmem;
+echo "1" > /proc/sys/net/ipv4/tcp_fack;
+echo "2" > /proc/sys/net/ipv4/tcp_synack_retries;
+echo "2" > /proc/sys/net/ipv4/tcp_syn_retries;
+echo "1" > /proc/sys/net/ipv4/tcp_no_metrics_save;
+echo "1800" > /proc/sys/net/ipv4/tcp_keepalive_time;
+echo "0" > /proc/sys/net/ipv4/ip_forward;
+echo "0" > /proc/sys/net/ipv4/conf/default/accept_source_route;
+echo "0" > /proc/sys/net/ipv4/conf/all/accept_source_route;
+echo "0" > /proc/sys/net/ipv4/conf/all/accept_redirects;
+echo "1" > /proc/sys/net/ipv4/conf/all/rp_filter;
+echo "0" > /proc/sys/net/ipv4/conf/default/accept_redirects;
+echo "0" > /proc/sys/net/ipv4/conf/all/secure_redirects;
+echo "0" > /proc/sys/net/ipv4/conf/default/secure_redirects;
+echo "0" > /proc/sys/net/ipv4/ip_dynaddr;
+echo "524288" > /proc/sys/net/core/rmem_max;
+echo "524288" > /proc/sys/net/core/wmem_max;
+echo "262144" > /proc/sys/net/core/rmem_default;
+echo "262144" > /proc/sys/net/core/wmem_default;
+echo "20480" > /proc/sys/net/core/optmem_max;
+echo "2500" > /proc/sys/net/core/netdev_max_backlog;
+echo "50" > /proc/sys/net/unix/max_dgram_qlen;
+echo "network boost---------[OK]" | tee -a $LOG_FILE;
+
+# cleaner
+busybox rm -f /data/anr/*.*
+busybox rm -f /data/cache/*.*
+busybox rm -f /data/log/*.*
+busybox rm -f /data/tombstones/*
+busybox rm -f /data/system/dropbox/*.*
+chmod 400 /data/system/dropbox
+busybox rm /dev/log/main
+busybox rm -f /data/system/usagestats/*
+busybox chmod 400 /data/system/usagestats
+
+export sampling_rate=10000
+export up_threshold=65
+
+echo "memory cleaner--------[OK]" | tee -a $LOG_FILE;
+
+if [ -e /data/anr/*.* ]; then
+	echo "-anr not cleaned" | tee -a $LOG_FILE; else
+	echo "-anr cleaned" | tee -a $LOG_FILE
+fi;
+if [ -e /data/cache/*.* ]; then
+	echo "-cache not cleaned" | tee -a $LOG_FILE; else
+	echo "-cache cleaned" | tee -a $LOG_FILE
+fi;
+if [ -e /data/log/*.* ]; then
+	echo "-log not cleaned" | tee -a $LOG_FILE; else
+	echo "-log cleaned" | tee -a $LOG_FILE
+fi;
+if [ -e /data/tombstones/*.* ]; then
+	echo "-tombstones not cleaned" | tee -a $LOG_FILE; else
+	echo "-tombstones cleaned" | tee -a $LOG_FILE
+fi;
+
+# minfree
+echo "0" > /sys/module/lowmemorykiller/parameters/debug_level;
+echo "64" > /sys/module/lowmemorykiller/parameters/cost;
+echo "0,1,3,5,7,15" > /sys/module/lowmemorykiller/parameters/adj;
+echo "1536,2048,4096,20480,20480,15360" > /sys/module/lowmemorykiller/parameters/minfree;
+echo "minfree setting-------[OK]
+-minfree value
+$( cat /sys/module/lowmemorykiller/parameters/minfree )" | tee -a $LOG_FILE;
+
+# i/o related tweak
+STL=`ls -d /sys/block/stl*`;
+BML=`ls -d /sys/block/bml*`;
+MMC=`ls -d /sys/block/mmc*`;
+
+#I/O scheduler
+avail_io=/sys/block/mmcblk0/queue/scheduler
+check=`cat $avail_io`
+
+#sio not working , needs more testing
+if [ grep "sio" /sys/block/mmcblk0/queue/scheduler ]; then
+	for i in $STL $BML $MMC;
+	do
+		echo "sio" > $i/queue/scheduler; 
+	done;
+else
+	for i in $STL $BML $MMC;
+	do
+		echo "noop" > $i/queue/scheduler; 
+	done;
+fi
+
+# Optimize non-rotating storage; 
+for i in $STL $BML $MMC;
+do
+	#IMPORTANT!
+	if [ -e $i/queue/rotational ]; 
+	then
+		echo 0 > $i/queue/rotational; 
+	fi;
+	if [ -e $i/queue/nr_requests ];
+	then
+		echo 8192 > $i/queue/nr_requests; # for starters: keep it same
+	fi;
+	
+	# deadline/VR/SIO scheduler specific
+	if [ -e $i/queue/iosched/fifo_batch ];
+	then
+		echo 1 > $i/queue/iosched/fifo_batch;
+	fi;
+	if [ -e $i/queue/iosched/writes_starved ];
+	then
+		echo 1 > $i/queue/iosched/writes_starved;
+	fi;
+	
+	if [ -e $i/queue/iostats ];
+	then
+		echo "0" > $i/queue/iostats;
+	fi;
+
+# Optimize for read- & write-throughput; 
+# Optimize for readahead; 
+	if [ -e $i/queue/read_ahead_kb ];
+	then
+		echo "256" >  $i/queue/read_ahead_kb;
+	fi;
+	
+done;
+
+echo "IO tweaks-------------[OK]" | tee -a $LOG_FILE;
+
+# vacuum
+echo "==========================
+Sqlite Vacuum start at
+$( date +"%m-%d-%Y %H:%M:%S" )
+==========================" | tee -a $LOG_FILEZ;
+
+for i in \
+`find /data -iname "*.db"`
+do \
+	sqlite3 $i 'VACUUM;'; 
+	echo vacuum $i  | tee -a $LOG_FILEZ;
+done;
+
+for i in \
+`find /dbdata -iname "*.db"`
+do \
+	sqlite3 $i 'VACUUM;'; 
+	echo vacuum $i  | tee -a $LOG_FILEZ;
+done;
+
+for i in \
+`find /sdcard -iname "*.db"`
+do \
+	sqlite3 $i 'VACUUM;'; 
+	echo vacuum $i  | tee -a $LOG_FILEZ;
+done
+
+echo "==========================
+sqlite Vacuum done at
+$( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILEZ;
+echo "Sqlite Vacuum---------[OK]" | tee -a $LOG_FILE;
+
+# end
+echo "==========================
+done at: 
+$( date +"%m-%d-%Y %H:%M:%S" )
+all praise is due to Allah
+==========================
+--   have a nice day    -- 
+      kurotsugi@xda
+==========================" | tee -a $LOG_FILE;
