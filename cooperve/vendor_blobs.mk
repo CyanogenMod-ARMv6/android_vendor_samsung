@@ -84,13 +84,9 @@ PRODUCT_COPY_FILES += \
 # WIFI
 PRODUCT_COPY_FILES += \
     device/samsung/bcm21553-common/prebuilt/bin/get_macaddrs:/system/bin/get_macaddrs \
-#    vendor/samsung/cooperve/proprietary/etc/wifi/bcm4330_aps.bin:system/etc/wifi/bcm4330_aps.bin \
-#    vendor/samsung/cooperve/proprietary/etc/wifi/bcm4330_sta.bin:system/etc/wifi/bcm4330_sta.bin \
-#    vendor/samsung/cooperve/proprietary/etc/wifi/RC_248_WPA.bin:system/etc/wifi/RC_248_WPA.bin \
-#    vendor/samsung/cooperve/proprietary/etc/wifi/bcm4330_mfg.bin:system/etc/wifi/bcm4330_mfg.bin \
-#    vendor/samsung/cooperve/proprietary/etc/wifi/nvram_mfg.txt:system/etc/wifi/nvram_mfg.txt \
-#    vendor/samsung/cooperve/proprietary/etc/wifi/nvram.txt:system/etc/wifi/nvram.txt \
-#    vendor/samsung/cooperve/proprietary/etc/wifi/wifi.conf:system/etc/wifi/wifi.conf \
+    vendor/samsung/cooperve/proprietary/etc/wifi/bcm4330_aps.bin:system/etc/wifi/bcm4330_aps.bin \
+    vendor/samsung/cooperve/proprietary/etc/wifi/bcm4330_sta.bin:system/etc/wifi/bcm4330_sta.bin \
+    vendor/samsung/cooperve/proprietary/etc/wifi/nvram.txt:system/etc/wifi/nvram.txt
 
 # RIL
 PRODUCT_COPY_FILES += \
@@ -107,4 +103,34 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/cooperve/proprietary/lib/modules/hx170dec.ko:system/lib/modules/hx170dec.ko \
     vendor/samsung/cooperve/proprietary/lib/modules/bcm_headsetsw.ko:system/lib/modules/bcm_headsetsw.ko \
     vendor/samsung/cooperve/proprietary/lib/modules/brcm_switch.ko:system/lib/modules/brcm_switch.ko \
-#    vendor/samsung/cooperve/proprietary/lib/modules/dhd.ko:system/lib/modules/dhd.ko
+    vendor/samsung/cooperve/proprietary/lib/modules/dhd.ko:system/lib/modules/dhd.ko
+
+# Offline 320 x 240 charging
+PRODUCT_COPY_FILES += \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_5.qmg:system/media/battery_charging_5.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_10.qmg:system/media/battery_charging_10.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_15.qmg:system/media/battery_charging_15.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_20.qmg:system/media/battery_charging_20.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_25.qmg:system/media/battery_charging_25.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_30.qmg:system/media/battery_charging_30.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_35.qmg:system/media/battery_charging_35.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_40.qmg:system/media/battery_charging_40.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_45.qmg:system/media/battery_charging_45.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_50.qmg:system/media/battery_charging_50.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_55.qmg:system/media/battery_charging_55.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_60.qmg:system/media/battery_charging_60.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_65.qmg:system/media/battery_charging_65.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_70.qmg:system/media/battery_charging_70.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_75.qmg:system/media/battery_charging_75.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_80.qmg:system/media/battery_charging_80.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_85.qmg:system/media/battery_charging_85.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_90.qmg:system/media/battery_charging_90.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_95.qmg:system/media/battery_charging_95.qmg \
+    vendor/samsung/cooperve/proprietary/media/battery_charging_100.qmg:system/media/battery_charging_100.qmg \
+    vendor/samsung/cooperve/proprietary/media/chargingwarning.qmg:system/media/chargingwarning.qmg \
+    vendor/samsung/cooperve/proprietary/media/Disconnected.qmg:system/media/Disconnected.qmg \
+    vendor/samsung/cooperve/proprietary/media/TemperatureError.qmg:system/media/TemperatureError.qmg \
+    vendor/samsung/cooperve/proprietary/bin/charging_mode:system/bin/charging_mode \
+    vendor/samsung/cooperve/proprietary/bin/playlpm:system/bin/playlpm \
+    vendor/samsung/cooperve/proprietary/lib/libqmage_bluesea.so:system/lib/libqmage_bluesea.so \
+    vendor/samsung/cooperve/proprietary/lib/libQmageDecoder.so:system/lib/libQmageDecoder.so
