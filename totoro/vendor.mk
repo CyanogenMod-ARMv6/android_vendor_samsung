@@ -13,6 +13,6 @@
 # limitations under the License.
 
 # Pick up overlay for features that depend on non-open-source files
-DEVICE_PACKAGE_OVERLAYS := vendor/samsung/cooperve/overlay
+DEVICE_PACKAGE_OVERLAYS := vendor/samsung/totoro/overlay
 
-$(call inherit-product, vendor/samsung/cooperve/vendor_blobs.mk)
+$(call inherit-product, vendor/samsung/totoro/vendor_blobs.mk)
