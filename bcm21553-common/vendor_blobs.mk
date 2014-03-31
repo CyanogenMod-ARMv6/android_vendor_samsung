@@ -16,10 +16,20 @@
 #       take some libs not written here yet, so that's the reason.
 
 # Audio
-PRODUCT_COPY_FILES += \
-    vendor/samsung/bcm21553-common/proprietary/etc/asound.conf:system/etc/asound.conf \
-    vendor/samsung/bcm21553-common/proprietary/lib/libasound.so:system/lib/libasound.so \
-    vendor/samsung/bcm21553-common/proprietary/lib/hw/alsa.default.so:system/lib/hw/alsa.default.so \
+#PRODUCT_COPY_FILES += \
+#    vendor/samsung/bcm21553-common/proprietary/lib/hw/acoustics.default.so:system/lib/hw/acoustics.default.so \
+#    vendor/samsung/bcm21553-common/proprietary/etc/asound.conf:system/etc/asound.conf \
+#    vendor/samsung/bcm21553-common/proprietary/lib/hw/alsa.default.so:system/lib/hw/alsa.default.so \
+#    vendor/samsung/bcm21553-common/proprietary/lib/libaudiopolicy.so:system/lib/libaudiopolicy.so \
+#    vendor/samsung/bcm21553-common/proprietary/lib/libaudiopolicy.so:obj/lib/libaudiopolicy.so
+
+# Alcatel Audio
+#PRODUCT_COPY_FILES += \
+#    vendor/alcatel/bcm21553-common/proprietary/lib/libaudio.so:system/lib/libaudio.so \
+#    vendor/alcatel/bcm21553-common/proprietary/lib/libaudio.so:obj/lib/libaudio.so \
+#    vendor/alcatel/bcm21553-common/proprietary/lib/libaudioeffect_jni.so:system/lib/libaudioeffect_jni.so \
+#    vendor/alcatel/bcm21553-common/proprietary/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
+#    vendor/alcatel/bcm21553-common/proprietary/lib/libmediaplayerservice.so:system/lib/libmediaplayerservice.so
 
 # Encoding / decoding
 PRODUCT_COPY_FILES += \
@@ -85,6 +95,10 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/bcm21553-common/proprietary/lib/liburilclient.so:system/lib/liburilclient.so \
     vendor/samsung/bcm21553-common/proprietary/bin/rild:system/bin/rild \
     vendor/samsung/bcm21553-common/proprietary/lib/libbrcm_ril.so:system/lib/libreference-ril.so
+
+# Apns config file
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # Modules
 PRODUCT_COPY_FILES += \
