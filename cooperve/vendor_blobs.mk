@@ -15,9 +15,9 @@
 $(call inherit-product, vendor/samsung/bcm21553-common/vendor.mk)
 
 # Camera
-PRODUCT_COPY_FILES += \
-    vendor/samsung/cooperve/proprietary/lib/libcamera.so:system/lib/libcamera.so \
-    vendor/samsung/cooperve/proprietary/lib/libbrcmjpeg.so:system/lib/libbrcmjpeg.so \
+#PRODUCT_COPY_FILES += \
+#    vendor/samsung/cooperve/proprietary/lib/libcamera.so:system/lib/libcamera.so \
+#    vendor/samsung/cooperve/proprietary/lib/libbrcmjpeg.so:system/lib/libbrcmjpeg.so \
 #    vendor/samsung/cooperve/proprietary/lib/libarccamera.so:system/lib/libarccamera.so \
 #    vendor/samsung/cooperve/proprietary/lib/libCaMotion.so:system/lib/libCaMotion.so \
 #    vendor/samsung/cooperve/proprietary/lib/libPanoraMax1.so:system/lib/libPanoraMax1.so \
@@ -29,14 +29,10 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    vendor/samsung/cooperve/proprietary/lib/hw/lights.bcm21553.so:system/lib/hw/lights.bcm21553.so \
+    vendor/samsung/cooperve/proprietary/lib/hw/sensors.goldfish.so:system/lib/hw/sensors.goldfish.so \
     vendor/samsung/cooperve/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so \
-#    vendor/samsung/cooperve/proprietary/lib/hw/sensors.goldfish.so:system/lib/hw/sensors.goldfish.so \
-#    vendor/samsung/cooperve/proprietary/lib/hw/acoustics.default.so:system/lib/hw/acoustics.default.so \
-#    vendor/samsung/cooperve/proprietary/lib/libaccsensorcal.so:system/lib/libaccsensorcal.so \
-#    vendor/samsung/cooperve/proprietary/lib/libaccsensorcaltest.so:system/lib/libaccsensorcaltest.so \
-#    vendor/samsung/cooperve/proprietary/lib/libaccelcal.so:system/lib/libaccelcal.so \
-#    vendor/samsung/cooperve/proprietary/lib/libdhwr.so:system/lib/libdhwr.so
+    vendor/samsung/bcm21553-common/proprietary/bin/memsicd:system/bin/memsicd \
+    vendor/samsung/cooperve/proprietary/lib/hw/lights.bcm21553.so:system/lib/hw/lights.bcm21553.so \
 
 # Offline 320 x 240 charging
 PRODUCT_COPY_FILES += \

@@ -15,22 +15,6 @@
 # NOTE: Proprietary/ folder includes whole stock ROM, as this vendor is WIP, we may
 #       take some libs not written here yet, so that's the reason.
 
-# Audio
-#PRODUCT_COPY_FILES += \
-#    vendor/samsung/bcm21553-common/proprietary/lib/hw/acoustics.default.so:system/lib/hw/acoustics.default.so \
-#    vendor/samsung/bcm21553-common/proprietary/etc/asound.conf:system/etc/asound.conf \
-#    vendor/samsung/bcm21553-common/proprietary/lib/hw/alsa.default.so:system/lib/hw/alsa.default.so \
-#    vendor/samsung/bcm21553-common/proprietary/lib/libaudiopolicy.so:system/lib/libaudiopolicy.so \
-#    vendor/samsung/bcm21553-common/proprietary/lib/libaudiopolicy.so:obj/lib/libaudiopolicy.so
-
-# Alcatel Audio
-#PRODUCT_COPY_FILES += \
-#    vendor/alcatel/bcm21553-common/proprietary/lib/libaudio.so:system/lib/libaudio.so \
-#    vendor/alcatel/bcm21553-common/proprietary/lib/libaudio.so:obj/lib/libaudio.so \
-#    vendor/alcatel/bcm21553-common/proprietary/lib/libaudioeffect_jni.so:system/lib/libaudioeffect_jni.so \
-#    vendor/alcatel/bcm21553-common/proprietary/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
-#    vendor/alcatel/bcm21553-common/proprietary/lib/libmediaplayerservice.so:system/lib/libmediaplayerservice.so
-
 # Encoding / decoding
 PRODUCT_COPY_FILES += \
     vendor/samsung/bcm21553-common/proprietary/lib/libBRCM_omx_core.so:system/lib/libBRCM_omx_core.so \
@@ -52,19 +36,6 @@ PRODUCT_COPY_FILES += \
 #    vendor/samsung/bcm21553-common/proprietary/etc/usbconfig.sh:system/etc/usbconfig.sh \
 #    vendor/samsung/bcm21553-common/proprietary/etc/dbus.conf:system/etc/dbus.conf
 
-# Camera
-PRODUCT_COPY_FILES += \
-    vendor/samsung/bcm21553-common/proprietary/lib/libcamera.so:system/lib/libcamera.so \
-    vendor/samsung/bcm21553-common/proprietary/lib/libbrcmjpeg.so:system/lib/libbrcmjpeg.so \
-#    vendor/samsung/bcm21553-common/proprietary/lib/libarccamera.so:system/lib/libarccamera.so \
-#    vendor/samsung/bcm21553-common/proprietary/lib/libCaMotion.so:system/lib/libCaMotion.so \
-#    vendor/samsung/bcm21553-common/proprietary/lib/libPanoraMax1.so:system/lib/libPanoraMax1.so \
-#    vendor/samsung/bcm21553-common/proprietary/lib/libseccamera.so:system/lib/libseccamera.so \
-#    vendor/samsung/bcm21553-common/proprietary/lib/libseccameraadaptor.so:system/lib/libseccameraadaptor.so \
-#    vendor/samsung/bcm21553-common/proprietary/lib/libcamera_client.so:system/lib/libcamera_client.so \
-#    vendor/samsung/bcm21553-common/proprietary/lib/libcameraservice.so:system/lib/libcameraservice.so \
-#    vendor/samsung/bcm21553-common/proprietary/lib/libcaps.so:system/lib/libcaps.so
-
 # Touchscreen
 PRODUCT_COPY_FILES += \
     vendor/samsung/bcm21553-common/proprietary/usr/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
@@ -72,8 +43,8 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_COPY_FILES += \
     vendor/samsung/bcm21553-common/proprietary/etc/bluetooth/audio.conf:system/etc/bluetooth/audio.conf \
-    vendor/samsung/bcm21553-common/proprietary/system/bin/btld:system/bin/btld \
     vendor/samsung/bcm21553-common/proprietary/bin/BCM4330B1_002.001.003.0634.0652.hcd:system/bin/BCM4330B1_002.001.003.0634.0652.hcd
+#    vendor/samsung/bcm21553-common/proprietary/system/bin/btld:system/bin/btld \
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -94,7 +65,7 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/bcm21553-common/proprietary/lib/libbrcm_ril.so:system/lib/libbrcm_ril.so \
     vendor/samsung/bcm21553-common/proprietary/lib/liburilclient.so:system/lib/liburilclient.so \
     vendor/samsung/bcm21553-common/proprietary/bin/rild:system/bin/rild \
-    vendor/samsung/bcm21553-common/proprietary/lib/libbrcm_ril.so:system/lib/libreference-ril.so
+    vendor/samsung/bcm21553-common/proprietary/lib/libasound.so:system/lib/libasound.so
 
 # Apns config file
 PRODUCT_COPY_FILES += \
