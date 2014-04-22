@@ -16,54 +16,51 @@ $(call inherit-product, vendor/samsung/bcm21553-common/vendor.mk)
 
 # Camera
 PRODUCT_COPY_FILES += \
-    vendor/samsung/totoro/proprietary/lib/libcamera.so:system/lib/libcamera.so \
-    vendor/samsung/totoro/proprietary/lib/libbrcmjpeg.so:system/lib/libbrcmjpeg.so \
-#    vendor/samsung/totoro/proprietary/lib/libarccamera.so:system/lib/libarccamera.so \
-#    vendor/samsung/totoro/proprietary/lib/libCaMotion.so:system/lib/libCaMotion.so \
-#    vendor/samsung/totoro/proprietary/lib/libPanoraMax1.so:system/lib/libPanoraMax1.so \
-#    vendor/samsung/totoro/proprietary/lib/libseccamera.so:system/lib/libseccamera.so \
-#    vendor/samsung/totoro/proprietary/lib/libseccameraadaptor.so:system/lib/libseccameraadaptor.so \
-#    vendor/samsung/totoro/proprietary/lib/libcamera_client.so:system/lib/libcamera_client.so \
-#    vendor/samsung/totoro/proprietary/lib/libcameraservice.so:system/lib/libcameraservice.so \
-#    vendor/samsung/totoro/proprietary/lib/libcaps.so:system/lib/libcaps.so
+    vendor/samsung/tassve/proprietary/lib/libcamera.so:system/lib/libcamera.so
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    vendor/samsung/totoro/proprietary/lib/hw/lights.bcm21553.so:system/lib/hw/lights.bcm21553.so \
-    vendor/samsung/totoro/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so \
-    vendor/samsung/totoro/proprietary/lib/hw/sensors.goldfish.so:system/lib/hw/sensors.goldfish.so \
-#    vendor/samsung/totoro/proprietary/lib/hw/acoustics.default.so:system/lib/hw/acoustics.default.so \
-#    vendor/samsung/totoro/proprietary/lib/libaccsensorcal.so:system/lib/libaccsensorcal.so \
-#    vendor/samsung/totoro/proprietary/lib/libaccsensorcaltest.so:system/lib/libaccsensorcaltest.so \
-#    vendor/samsung/totoro/proprietary/lib/libaccelcal.so:system/lib/libaccelcal.so \
-#    vendor/samsung/totoro/proprietary/lib/libdhwr.so:system/lib/libdhwr.so
+    vendor/samsung/tassve/proprietary/lib/hw/sensors.tassve.so:system/lib/hw/sensors.tassve.so
+
+# Kernel Modules
+PRODUCT_COPY_FILES += \
+    vendor/samsung/tassve/proprietary/lib/modules/fsr.ko:root/lib/modules/fsr.ko \
+    vendor/samsung/tassve/proprietary/lib/modules/fsr_stl.ko:root/lib/modules/fsr_stl.ko \
+    vendor/samsung/tassve/proprietary/lib/modules/j4fs.ko:root/lib/modules/j4fs.ko \
+    vendor/samsung/tassve/proprietary/lib/modules/rfs_fat.ko:root/lib/modules/rfs_fat.ko \
+    vendor/samsung/tassve/proprietary/lib/modules/rfs_glue.ko:root/lib/modules/rfs_glue.ko \
+    vendor/samsung/tassve/proprietary/lib/modules/sec_param.ko:root/lib/modules/sec_param.ko \
+    vendor/samsung/tassve/proprietary/lib/modules/fsr.ko:recovery/root/lib/modules/fsr.ko \
+    vendor/samsung/tassve/proprietary/lib/modules/fsr_stl.ko:recovery/root/lib/modules/fsr_stl.ko \
+    vendor/samsung/tassve/proprietary/lib/modules/j4fs.ko:recovery/root/lib/modules/j4fs.ko \
+    vendor/samsung/tassve/proprietary/lib/modules/rfs_fat.ko:recovery/root/lib/modules/rfs_fat.ko \
+    vendor/samsung/tassve/proprietary/lib/modules/rfs_glue.ko:recovery/root/lib/modules/rfs_glue.ko \
+    vendor/samsung/tassve/proprietary/lib/modules/sec_param.ko:recovery/root/lib/modules/sec_param.ko
 
 # Offline 320 x 240 charging
 PRODUCT_COPY_FILES += \
-    vendor/samsung/totoro/proprietary/media/battery_charging_5.qmg:system/media/battery_charging_5.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_10.qmg:system/media/battery_charging_10.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_15.qmg:system/media/battery_charging_15.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_20.qmg:system/media/battery_charging_20.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_25.qmg:system/media/battery_charging_25.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_30.qmg:system/media/battery_charging_30.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_35.qmg:system/media/battery_charging_35.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_40.qmg:system/media/battery_charging_40.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_45.qmg:system/media/battery_charging_45.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_50.qmg:system/media/battery_charging_50.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_55.qmg:system/media/battery_charging_55.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_60.qmg:system/media/battery_charging_60.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_65.qmg:system/media/battery_charging_65.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_70.qmg:system/media/battery_charging_70.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_75.qmg:system/media/battery_charging_75.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_80.qmg:system/media/battery_charging_80.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_85.qmg:system/media/battery_charging_85.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_90.qmg:system/media/battery_charging_90.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_95.qmg:system/media/battery_charging_95.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_100.qmg:system/media/battery_charging_100.qmg \
-    vendor/samsung/totoro/proprietary/media/chargingwarning.qmg:system/media/chargingwarning.qmg \
-    vendor/samsung/totoro/proprietary/media/Disconnected.qmg:system/media/Disconnected.qmg \
-    vendor/samsung/totoro/proprietary/media/TemperatureError.qmg:system/media/TemperatureError.qmg \
-    vendor/samsung/totoro/proprietary/bin/charging_mode:system/bin/charging_mode \
-    vendor/samsung/totoro/proprietary/bin/playlpm:system/bin/playlpm \
-    vendor/samsung/totoro/proprietary/lib/libqmage_bluesea.so:system/lib/libqmage_bluesea.so \
-    vendor/samsung/totoro/proprietary/lib/libQmageDecoder.so:system/lib/libQmageDecoder.so
+    vendor/samsung/tassve/proprietary/media/battery_charging_5.qmg:system/media/battery_charging_5.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_10.qmg:system/media/battery_charging_10.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_15.qmg:system/media/battery_charging_15.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_20.qmg:system/media/battery_charging_20.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_25.qmg:system/media/battery_charging_25.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_30.qmg:system/media/battery_charging_30.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_35.qmg:system/media/battery_charging_35.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_40.qmg:system/media/battery_charging_40.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_45.qmg:system/media/battery_charging_45.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_50.qmg:system/media/battery_charging_50.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_55.qmg:system/media/battery_charging_55.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_60.qmg:system/media/battery_charging_60.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_65.qmg:system/media/battery_charging_65.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_70.qmg:system/media/battery_charging_70.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_75.qmg:system/media/battery_charging_75.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_80.qmg:system/media/battery_charging_80.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_85.qmg:system/media/battery_charging_85.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_90.qmg:system/media/battery_charging_90.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_95.qmg:system/media/battery_charging_95.qmg \
+    vendor/samsung/tassve/proprietary/media/battery_charging_100.qmg:system/media/battery_charging_100.qmg \
+    vendor/samsung/tassve/proprietary/media/chargingwarning.qmg:system/media/chargingwarning.qmg \
+    vendor/samsung/tassve/proprietary/media/Disconnected.qmg:system/media/Disconnected.qmg \
+    vendor/samsung/tassve/proprietary/media/TemperatureError.qmg:system/media/TemperatureError.qmg \
+    vendor/samsung/tassve/proprietary/bin/charging_mode:system/bin/charging_mode \
+    vendor/samsung/tassve/proprietary/bin/playlpm:system/bin/playlpm
