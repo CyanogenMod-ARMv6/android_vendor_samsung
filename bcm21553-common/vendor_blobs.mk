@@ -87,3 +87,10 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/bcm21553-common/proprietary/lib/modules/bcm_headsetsw.ko:system/lib/modules/bcm_headsetsw.ko \
     vendor/samsung/bcm21553-common/proprietary/lib/modules/brcm_switch.ko:system/lib/modules/brcm_switch.ko \
     vendor/samsung/bcm21553-common/proprietary/lib/modules/dhd.ko:system/lib/modules/dhd.ko
+
+# Common Offline charging
+PRODUCT_COPY_FILES += \
+    vendor/samsung/bcm21553-common/proprietary/bin/charging_mode:system/bin/charging_mode \
+    vendor/samsung/bcm21553-common/proprietary/bin/playlpm:system/bin/playlpm \
+    vendor/samsung/bcm21553-common/proprietary/lib/libqmage_bluesea.so:system/lib/libqmage_bluesea.so \
+    vendor/samsung/bcm21553-common/proprietary/lib/libQmageDecoder.so:system/lib/libQmageDecoder.so
