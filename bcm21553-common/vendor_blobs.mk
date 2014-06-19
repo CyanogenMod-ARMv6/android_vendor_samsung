@@ -24,17 +24,13 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/bcm21553-common/proprietary/lib/libomx_sharedlibrary.so:system/lib/libomx_sharedlibrary.so \
     vendor/samsung/bcm21553-common/proprietary/lib/libbrcmjpeg.so:system/lib/libbrcmjpeg.so
 
-# Touchscreen
-PRODUCT_COPY_FILES += \
-    vendor/samsung/bcm21553-common/proprietary/usr/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
-
 # Bluetooth
 PRODUCT_COPY_FILES += \
     vendor/samsung/bcm21553-common/proprietary/bin/BCM4330B1_002.001.003.0634.0652.hcd:system/bin/BCM4330B1_002.001.003.0634.0652.hcd
 
 # Vold
-PRODUCT_COPY_FILES += \
-    vendor/samsung/bcm21553-common/proprietary/bin/vold:system/bin/vold
+#PRODUCT_COPY_FILES += \
+#    vendor/samsung/bcm21553-common/proprietary/bin/vold:system/bin/vold
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -43,11 +39,6 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/bcm21553-common/proprietary/bin/gps.cer:system/bin/gps.cer \
     vendor/samsung/bcm21553-common/proprietary/etc/gps/glconfig4751.xml:system/etc/gps/glconfig4751.xml \
     vendor/samsung/bcm21553-common/proprietary/lib/hw/gps.bcm21553.so:system/lib/hw/gps.bcm21553.so
-
-# Common Offline charging stuff
-PRODUCT_COPY_FILES += \
-    vendor/samsung/bcm21553-common/proprietary/lib/libqmage_bluesea.so:system/lib/libqmage_bluesea.so \
-    vendor/samsung/bcm21553-common/proprietary/lib/libQmageDecoder.so:system/lib/libQmageDecoder.so
 
 # WIFI
 PRODUCT_COPY_FILES += \
@@ -84,9 +75,9 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/bcm21553-common/proprietary/lib/modules/ge_drv.ko:system/lib/modules/ge_drv.ko \
     vendor/samsung/bcm21553-common/proprietary/lib/modules/h6270enc.ko:system/lib/modules/h6270enc.ko \
     vendor/samsung/bcm21553-common/proprietary/lib/modules/hx170dec.ko:system/lib/modules/hx170dec.ko \
-    vendor/samsung/bcm21553-common/proprietary/lib/modules/bcm_headsetsw.ko:system/lib/modules/bcm_headsetsw.ko \
-    vendor/samsung/bcm21553-common/proprietary/lib/modules/brcm_switch.ko:system/lib/modules/brcm_switch.ko \
-    vendor/samsung/bcm21553-common/proprietary/lib/modules/dhd.ko:system/lib/modules/dhd.ko
+#    vendor/samsung/bcm21553-common/proprietary/lib/modules/bcm_headsetsw.ko:system/lib/modules/bcm_headsetsw.ko \
+#    vendor/samsung/bcm21553-common/proprietary/lib/modules/brcm_switch.ko:system/lib/modules/brcm_switch.ko \
+#    vendor/samsung/bcm21553-common/proprietary/lib/modules/dhd.ko:system/lib/modules/dhd.ko
 
 # Common Offline charging
 PRODUCT_COPY_FILES += \
