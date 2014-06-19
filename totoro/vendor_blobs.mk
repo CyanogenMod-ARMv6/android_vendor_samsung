@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, vendor/samsung/bcm21553-common/vendor.mk)
-
 # Camera
 PRODUCT_COPY_FILES += \
     vendor/samsung/totoro/proprietary/lib/libcamera.so:system/lib/libcamera.so \
@@ -30,30 +28,11 @@ PRODUCT_COPY_FILES += \
 # Sensors
 PRODUCT_COPY_FILES += \
     vendor/samsung/totoro/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so \
-    vendor/samsung/totoro/proprietary/lib/hw/sensors.goldfish.so:system/lib/hw/sensors.goldfish.so
+    vendor/samsung/totoro/proprietary/lib/hw/sensors.goldfish.so:system/lib/hw/sensors.goldfish.so \
+#    vendor/samsung/totoro/proprietary/lib/hw/acoustics.default.so:system/lib/hw/acoustics.default.so \
+#    vendor/samsung/totoro/proprietary/lib/libaccsensorcal.so:system/lib/libaccsensorcal.so \
+#    vendor/samsung/totoro/proprietary/lib/libaccsensorcaltest.so:system/lib/libaccsensorcaltest.so \
+#    vendor/samsung/totoro/proprietary/lib/libaccelcal.so:system/lib/libaccelcal.so \
+#    vendor/samsung/totoro/proprietary/lib/libdhwr.so:system/lib/libdhwr.so
 
-# Offline 320 x 240 charging
-PRODUCT_COPY_FILES += \
-    vendor/samsung/totoro/proprietary/media/battery_charging_5.qmg:system/media/battery_charging_5.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_10.qmg:system/media/battery_charging_10.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_15.qmg:system/media/battery_charging_15.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_20.qmg:system/media/battery_charging_20.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_25.qmg:system/media/battery_charging_25.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_30.qmg:system/media/battery_charging_30.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_35.qmg:system/media/battery_charging_35.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_40.qmg:system/media/battery_charging_40.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_45.qmg:system/media/battery_charging_45.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_50.qmg:system/media/battery_charging_50.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_55.qmg:system/media/battery_charging_55.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_60.qmg:system/media/battery_charging_60.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_65.qmg:system/media/battery_charging_65.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_70.qmg:system/media/battery_charging_70.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_75.qmg:system/media/battery_charging_75.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_80.qmg:system/media/battery_charging_80.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_85.qmg:system/media/battery_charging_85.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_90.qmg:system/media/battery_charging_90.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_95.qmg:system/media/battery_charging_95.qmg \
-    vendor/samsung/totoro/proprietary/media/battery_charging_100.qmg:system/media/battery_charging_100.qmg \
-    vendor/samsung/totoro/proprietary/media/chargingwarning.qmg:system/media/chargingwarning.qmg \
-    vendor/samsung/totoro/proprietary/media/Disconnected.qmg:system/media/Disconnected.qmg \
-    vendor/samsung/totoro/proprietary/media/TemperatureError.qmg:system/media/TemperatureError.qmg
+$(call inherit-product, vendor/samsung/bcm21553-common/vendor.mk)

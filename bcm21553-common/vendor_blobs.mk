@@ -12,6 +12,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Kernel Modules
+PRODUCT_COPY_FILES += \
+    vendor/samsung/bcm21553-common/proprietary/lib/modules/fsr.ko:root/lib/modules/fsr.ko \
+    vendor/samsung/bcm21553-common/proprietary/lib/modules/fsr_stl.ko:root/lib/modules/fsr_stl.ko \
+    vendor/samsung/bcm21553-common/proprietary/lib/modules/j4fs.ko:root/lib/modules/j4fs.ko \
+    vendor/samsung/bcm21553-common/proprietary/lib/modules/rfs_fat.ko:root/lib/modules/rfs_fat.ko \
+    vendor/samsung/bcm21553-common/proprietary/lib/modules/rfs_glue.ko:root/lib/modules/rfs_glue.ko \
+    vendor/samsung/bcm21553-common/proprietary/lib/modules/sec_param.ko:root/lib/modules/sec_param.ko \
+    vendor/samsung/bcm21553-common/proprietary/lib/modules/fsr.ko:recovery/root/lib/modules/fsr.ko \
+    vendor/samsung/bcm21553-common/proprietary/lib/modules/fsr_stl.ko:recovery/root/lib/modules/fsr_stl.ko \
+    vendor/samsung/bcm21553-common/proprietary/lib/modules/j4fs.ko:recovery/root/lib/modules/j4fs.ko \
+    vendor/samsung/bcm21553-common/proprietary/lib/modules/rfs_fat.ko:recovery/root/lib/modules/rfs_fat.ko \
+    vendor/samsung/bcm21553-common/proprietary/lib/modules/rfs_glue.ko:recovery/root/lib/modules/rfs_glue.ko \
+    vendor/samsung/bcm21553-common/proprietary/lib/modules/sec_param.ko:recovery/root/lib/modules/sec_param.ko
+
 # Encoding / decoding (not working)
 PRODUCT_COPY_FILES += \
     vendor/samsung/bcm21553-common/proprietary/lib/libBRCM_omx_core.so:system/lib/libBRCM_omx_core.so \
@@ -26,11 +41,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
-    vendor/samsung/bcm21553-common/proprietary/bin/BCM4330B1_002.001.003.0634.0652.hcd:system/bin/BCM4330B1_002.001.003.0634.0652.hcd
-
-# Vold
-#PRODUCT_COPY_FILES += \
-#    vendor/samsung/bcm21553-common/proprietary/bin/vold:system/bin/vold
+    vendor/samsung/bcm21553-common/proprietary/etc/firmware/BCM4330B1_002.001.003.0634.0652.hcd:system/etc/firmware/BCM4330B1_002.001.003.0634.0652.hcd
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -42,15 +53,11 @@ PRODUCT_COPY_FILES += \
 
 # WIFI
 PRODUCT_COPY_FILES += \
-    vendor/samsung/bcm21553-common/proprietary/etc/wifi/bcm4330_aps.bin:system/etc/wifi/bcm4330_aps.bin \
-    vendor/samsung/bcm21553-common/proprietary/etc/wifi/bcm4330_sta.bin:system/etc/wifi/bcm4330_sta.bin \
-    vendor/samsung/bcm21553-common/proprietary/etc/wifi/nvram.txt:system/etc/wifi/nvram.txt \
-    vendor/samsung/bcm21553-common/proprietary/etc/wifi/RC_248_WPA.bin:system/etc/wifi/RC_248_WPA.bin \
+    vendor/samsung/bcm21553-common/proprietary/etc/firmware/bcm4330_aps.bin:system/etc/firmware/bcm4330_aps.bin \
+    vendor/samsung/bcm21553-common/proprietary/etc/firmware/bcm4330_sta.bin:system/etc/firmware/bcm4330_sta.bin \
+    vendor/samsung/bcm21553-common/proprietary/etc/firmware/nvram.txt:system/etc/firmware/nvram.txt \
+    vendor/samsung/bcm21553-common/proprietary/etc/firmware/RC_248_WPA.bin:system/etc/firmware/RC_248_WPA.bin \
     vendor/samsung/bcm21553-common/proprietary/bin/wlandutservice:system/bin/wlandutservice
-
-# Lights
-PRODUCT_COPY_FILES += \
-    vendor/samsung/bcm21553-common/proprietary/lib/hw/lights.bcm21553.so:system/lib/hw/lights.bcm21553.so
 
 # RIL
 PRODUCT_COPY_FILES += \
@@ -60,28 +67,7 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/bcm21553-common/proprietary/bin/rild:system/bin/rild \
     vendor/samsung/bcm21553-common/proprietary/lib/libasound.so:system/lib/libasound.so
 
-# Apns config file
-PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
-
 # Sensors
 PRODUCT_COPY_FILES += \
     vendor/samsung/bcm21553-common/proprietary/bin/memsicd:system/bin/memsicd
 
-# Modules
-PRODUCT_COPY_FILES += \
-    vendor/samsung/bcm21553-common/proprietary/lib/modules/memalloc.ko:system/lib/modules/memalloc.ko \
-    vendor/samsung/bcm21553-common/proprietary/lib/modules/gememalloc.ko:system/lib/modules/gememalloc.ko \
-    vendor/samsung/bcm21553-common/proprietary/lib/modules/ge_drv.ko:system/lib/modules/ge_drv.ko \
-    vendor/samsung/bcm21553-common/proprietary/lib/modules/h6270enc.ko:system/lib/modules/h6270enc.ko \
-    vendor/samsung/bcm21553-common/proprietary/lib/modules/hx170dec.ko:system/lib/modules/hx170dec.ko \
-#    vendor/samsung/bcm21553-common/proprietary/lib/modules/bcm_headsetsw.ko:system/lib/modules/bcm_headsetsw.ko \
-#    vendor/samsung/bcm21553-common/proprietary/lib/modules/brcm_switch.ko:system/lib/modules/brcm_switch.ko \
-#    vendor/samsung/bcm21553-common/proprietary/lib/modules/dhd.ko:system/lib/modules/dhd.ko
-
-# Common Offline charging
-PRODUCT_COPY_FILES += \
-    vendor/samsung/bcm21553-common/proprietary/bin/charging_mode:system/bin/charging_mode \
-    vendor/samsung/bcm21553-common/proprietary/bin/playlpm:system/bin/playlpm \
-    vendor/samsung/bcm21553-common/proprietary/lib/libqmage_bluesea.so:system/lib/libqmage_bluesea.so \
-    vendor/samsung/bcm21553-common/proprietary/lib/libQmageDecoder.so:system/lib/libQmageDecoder.so
