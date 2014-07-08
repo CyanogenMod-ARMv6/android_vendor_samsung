@@ -14,7 +14,7 @@
 
 # Camera
 PRODUCT_COPY_FILES += \
-    vendor/samsung/tassve/proprietary/lib/libarccamera.so:system/lib/libarccamera.so
+    vendor/samsung/tassve/proprietary/lib/libarccamera.so:system/lib/libarccamera.so \
     vendor/samsung/tassve/proprietary/lib/libcamera.so:system/lib/libcamera.so \
     vendor/samsung/tassve/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
     vendor/samsung/tassve/proprietary/lib/libCaMotion.so:system/lib/libCaMotion.so \
