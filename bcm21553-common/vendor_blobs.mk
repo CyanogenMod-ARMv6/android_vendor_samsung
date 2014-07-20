@@ -60,10 +60,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/alcatel/bcm21553-common/proprietary/lib/egl/libGLES_hgl.so:system/lib/egl/libGLES_hgl.so
 
-# Gralloc
-PRODUCT_COPY_FILES += \
-    vendor/alcatel/bcm21553-common/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so
-
 # Alcatel libstatgefright
 PRODUCT_COPY_FILES += \
     vendor/alcatel/bcm21553-common/proprietary/lib/libdrmagent_jni.so:system/lib/libdrmagent_jni.so \
@@ -84,9 +80,6 @@ PRODUCT_COPY_FILES += \
 # Alcatel encode / decode libs
 PRODUCT_COPY_FILES += \
     vendor/alcatel/bcm21553-common/proprietary/lib/libandroid_servers.so:system/lib/libandroid_servers.so \
-    vendor/alcatel/bcm21553-common/proprietary/lib/libEGL.so:system/lib/libEGL.so \
-    vendor/alcatel/bcm21553-common/proprietary/lib/libGLESv1_CM.so:system/lib/libGLESv1_CM.so \
-    vendor/alcatel/bcm21553-common/proprietary/lib/libGLESv2.so:system/lib/libGLESv2.so \
     vendor/alcatel/bcm21553-common/proprietary/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
     vendor/alcatel/bcm21553-common/proprietary/lib/libsurfaceflinger_client.so:system/lib/libsurfaceflinger_client.so \
     vendor/alcatel/bcm21553-common/proprietary/lib/libui.so:system/lib/libui.so
